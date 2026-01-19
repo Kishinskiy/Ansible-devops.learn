@@ -1,0 +1,6 @@
+---
+- name: Add local users to Keycloak
+  hosts: keycloak
+  gather_facts: false
+  roles:
+    - role: keycloak_user

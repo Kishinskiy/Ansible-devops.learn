@@ -1,0 +1,22 @@
+---
+- hosts: webserver
+  become: yes
+  vars:
+    system_groups:
+      - name: devops
+      - name: developers
+      - name: admin
+      - name: deploy
+      - name: docker
+
+    users:
+      - name: alice
+        groups: admin
+        shell: /bin/bash
+      - name: bob
+        groups:
+          - deploy
+          - docker
+        shell: /bin/zsh
+  roles:
+    - users
