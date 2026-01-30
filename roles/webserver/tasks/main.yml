@@ -1,0 +1,25 @@
+---
+- name: Ensure nginx is installed
+  package:
+    name: nginx
+    state: present
+    update_cache: yes
+
+
+- name:  Copy nginx config file
+  copy:
+    src: nginx.conf
+    dest: /etc/nginx/sites-enabled/default
+    owner: root
+    group: root
+    mode: '0644'
+  notify:
+    - restart nginx
+
+- name: Copy website files
+  template:
+    src: index.html.j2
+    dest: /var/www/html/index.html
+    owner: www-data
+    group: www-data
+    mode: '0755'

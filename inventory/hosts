@@ -1,2 +1,6 @@
 [webserver]
-fedora ansible_host=192.168.1.98 ansible_user=parallels ansible_private_key_file=~/.ssh/Kishinskiy-GitHub
+web-server-1.com ansible_host=192.168.139.208
+web-server-2 ansible_host=192.168.139.23
+web-server-3 ansible_host=192.168.139.66
+[webserver:vars]
+ansible_user=oleg
